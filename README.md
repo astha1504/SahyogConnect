@@ -54,7 +54,7 @@ Our approach includes user role segmentation, real-time dashboards, and a clean,
 
 | Screenshot | Description |
 |------------|-------------|
-| ![Advance Donation System](.advance-donation.png) | **Advance Donation System** – Users select donation types like food, clothes, or funds and add details easily. |
+| ![Advance Donation System](./screenshots/advance-donation.png) | **Advance Donation System** – Users select donation types like food, clothes, or funds and add details easily. |
 | ![Donor Dashboard](./screenshots/donor-dashboard.png) | **Donor Dashboard** – View donations made, balance left, and access recent transactions. |
 | ![Featured NGOs](./screenshots/featured-ngo.png) | **Featured NGOs** – Highlighted causes and registered NGOs for direct contribution or volunteering. |
 | ![NGO Dashboard](./screenshots/ngo-dashboard.png) | **NGOs Dashboard** – Manage campaigns, approve volunteers, and view recent donations. |
