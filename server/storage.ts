@@ -89,6 +89,11 @@ export class MemStorage implements IStorage {
       email: "admin@sahyog.com",
       password: "hashed_password",
       role: "admin",
+      points: 0,
+      level: 1,
+      badges: [],
+      totalDonations: 0,
+      totalImpact: 0,
       createdAt: new Date(),
     };
     this.users.set(adminUser.id, adminUser);
@@ -99,6 +104,11 @@ export class MemStorage implements IStorage {
       email: "john@example.com",
       password: "hashed_password",
       role: "donor",
+      points: 150,
+      level: 2,
+      badges: ["first_donation"],
+      totalDonations: 3,
+      totalImpact: 25,
       createdAt: new Date(),
     };
     this.users.set(donorUser.id, donorUser);
@@ -109,6 +119,11 @@ export class MemStorage implements IStorage {
       email: "priya@brightfuture.org",
       password: "hashed_password",
       role: "ngo",
+      points: 75,
+      level: 1,
+      badges: [],
+      totalDonations: 0,
+      totalImpact: 15,
       createdAt: new Date(),
     };
     this.users.set(ngoUser.id, ngoUser);
@@ -166,6 +181,11 @@ export class MemStorage implements IStorage {
     const user: User = {
       ...userData,
       id: this.userIdCounter++,
+      points: userData.points ?? 0,
+      level: userData.level ?? 1,
+      badges: userData.badges ?? [],
+      totalDonations: userData.totalDonations ?? 0,
+      totalImpact: userData.totalImpact ?? 0,
       createdAt: new Date(),
     };
     this.users.set(user.id, user);
@@ -206,6 +226,14 @@ export class MemStorage implements IStorage {
     const ngo: Ngo = {
       ...ngoData,
       id: this.ngoIdCounter++,
+      description: ngoData.description ?? null,
+      mission: ngoData.mission ?? null,
+      verified: ngoData.verified ?? null,
+      impactScore: ngoData.impactScore ?? null,
+      focusAreas: ngoData.focusAreas ?? null,
+      registrationNumber: ngoData.registrationNumber ?? null,
+      website: ngoData.website ?? null,
+      phone: ngoData.phone ?? null,
       createdAt: new Date(),
     };
     this.ngos.set(ngo.id, ngo);
@@ -246,6 +274,14 @@ export class MemStorage implements IStorage {
     const donation: Donation = {
       ...donationData,
       id: this.donationIdCounter++,
+      description: donationData.description ?? null,
+      ngoId: donationData.ngoId ?? null,
+      amount: donationData.amount ?? null,
+      status: donationData.status ?? "pending",
+      urgency: donationData.urgency ?? null,
+      pickupTime: donationData.pickupTime ?? null,
+      estimatedImpact: donationData.estimatedImpact ?? null,
+      actualImpact: donationData.actualImpact ?? null,
       createdAt: new Date(),
       updatedAt: new Date(),
     };
@@ -300,6 +336,9 @@ export class MemStorage implements IStorage {
     const message: Message = {
       ...messageData,
       id: this.messageIdCounter++,
+      donationId: messageData.donationId ?? null,
+      messageType: messageData.messageType ?? "text",
+      read: messageData.read ?? null,
       createdAt: new Date(),
     };
     this.messages.set(message.id, message);
@@ -325,10 +364,46 @@ export class MemStorage implements IStorage {
     const update: DonationUpdate = {
       ...updateData,
       id: this.updateIdCounter++,
+      message: updateData.message ?? null,
       createdAt: new Date(),
     };
     this.donationUpdates.set(update.id, update);
     return update;
+  }
+
+  // Achievement operations
+  async getUserAchievements(userId: number): Promise<Achievement[]> {
+    return Array.from(this.achievements.values())
+      .filter(achievement => achievement.userId === userId)
+      .sort((a, b) => b.earnedAt.getTime() - a.earnedAt.getTime());
+  }
+
+  async createAchievement(achievementData: InsertAchievement): Promise<Achievement> {
+    const achievement: Achievement = {
+      ...achievementData,
+      id: this.achievementIdCounter++,
+      earnedAt: new Date(),
+    };
+    this.achievements.set(achievement.id, achievement);
+    return achievement;
+  }
+
+  async awardPoints(userId: number, points: number): Promise<void> {
+    const user = this.users.get(userId);
+    if (user) {
+      user.points += points;
+      user.level = Math.floor(user.points / 100) + 1;
+      this.users.set(userId, user);
+    }
+  }
+
+  async updateUserStats(userId: number, donations: number, impact: number): Promise<void> {
+    const user = this.users.get(userId);
+    if (user) {
+      user.totalDonations += donations;
+      user.totalImpact += impact;
+      this.users.set(userId, user);
+    }
   }
 }
 
