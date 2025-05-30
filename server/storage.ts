@@ -4,6 +4,7 @@ import {
   donations, 
   messages, 
   donationUpdates,
+  achievements,
   type User, 
   type InsertUser,
   type Ngo,
@@ -13,7 +14,9 @@ import {
   type Message,
   type InsertMessage,
   type DonationUpdate,
-  type InsertDonationUpdate
+  type InsertDonationUpdate,
+  type Achievement,
+  type InsertAchievement
 } from "@shared/schema";
 
 export interface IStorage {
@@ -51,6 +54,12 @@ export interface IStorage {
   // Donation update operations
   getDonationUpdates(donationId: number): Promise<DonationUpdate[]>;
   createDonationUpdate(update: InsertDonationUpdate): Promise<DonationUpdate>;
+
+  // Achievement operations
+  getUserAchievements(userId: number): Promise<Achievement[]>;
+  createAchievement(achievement: InsertAchievement): Promise<Achievement>;
+  awardPoints(userId: number, points: number): Promise<void>;
+  updateUserStats(userId: number, donations: number, impact: number): Promise<void>;
 }
 
 export class MemStorage implements IStorage {
@@ -59,12 +68,14 @@ export class MemStorage implements IStorage {
   private donations: Map<number, Donation> = new Map();
   private messages: Map<number, Message> = new Map();
   private donationUpdates: Map<number, DonationUpdate> = new Map();
+  private achievements: Map<number, Achievement> = new Map();
   
   private userIdCounter = 1;
   private ngoIdCounter = 1;
   private donationIdCounter = 1;
   private messageIdCounter = 1;
   private updateIdCounter = 1;
+  private achievementIdCounter = 1;
 
   constructor() {
     this.initializeSampleData();

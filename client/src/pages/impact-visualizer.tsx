@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Gift, Users, IndianRupee, Building, GraduationCap, Utensils } from "lucide-react";
 import StatCard from "@/components/stat-card";
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement, BarElement } from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, ArcElement, BarElement, Filler } from 'chart.js';
 import { Line, Doughnut, Bar } from 'react-chartjs-2';
 
 // Register Chart.js components
@@ -17,7 +17,8 @@ ChartJS.register(
   ArcElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Filler
 );
 
 export default function ImpactVisualizer() {

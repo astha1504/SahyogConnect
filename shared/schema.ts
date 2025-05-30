@@ -8,6 +8,11 @@ export const users = pgTable("users", {
   email: text("email").notNull().unique(),
   password: text("password").notNull(),
   role: text("role").notNull(), // 'donor', 'ngo', 'admin'
+  points: integer("points").default(0).notNull(),
+  level: integer("level").default(1).notNull(),
+  badges: text("badges").array().default([]),
+  totalDonations: integer("total_donations").default(0).notNull(),
+  totalImpact: integer("total_impact").default(0).notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
@@ -66,6 +71,16 @@ export const donationUpdates = pgTable("donation_updates", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
+export const achievements = pgTable("achievements", {
+  id: serial("id").primaryKey(),
+  userId: integer("user_id").references(() => users.id).notNull(),
+  badgeType: text("badge_type").notNull(), // 'first_donation', 'super_donor', 'impact_champion', etc.
+  badgeName: text("badge_name").notNull(),
+  badgeDescription: text("badge_description").notNull(),
+  pointsAwarded: integer("points_awarded").notNull(),
+  earnedAt: timestamp("earned_at").defaultNow().notNull(),
+});
+
 // Zod schemas
 export const insertUserSchema = createInsertSchema(users).omit({
   id: true,
@@ -93,6 +108,11 @@ export const insertDonationUpdateSchema = createInsertSchema(donationUpdates).om
   createdAt: true,
 });
 
+export const insertAchievementSchema = createInsertSchema(achievements).omit({
+  id: true,
+  earnedAt: true,
+});
+
 // Types
 export type User = typeof users.$inferSelect;
 export type InsertUser = z.infer<typeof insertUserSchema>;
@@ -108,3 +128,6 @@ export type InsertMessage = z.infer<typeof insertMessageSchema>;
 
 export type DonationUpdate = typeof donationUpdates.$inferSelect;
 export type InsertDonationUpdate = z.infer<typeof insertDonationUpdateSchema>;
+
+export type Achievement = typeof achievements.$inferSelect;
+export type InsertAchievement = z.infer<typeof insertAchievementSchema>;
