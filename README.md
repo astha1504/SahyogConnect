@@ -60,7 +60,6 @@ Our approach includes user role segmentation, real-time dashboards, and a clean,
 | ![NGO Dashboard](./ngo-dashboard.png) | **NGOs Dashboard** – Manage campaigns, approve volunteers, and view recent donations. |
 | ![Impact Dashboard](./impact-dashboard.png) | **Impact Dashboard** – Visual reports showing donation value, types, and monthly trends. |
 | ![Real-Time Chat](./real-time-chat.png) | **Real-Time Chatting System** – Instantly connect NGOs, donors, and volunteers via secure messaging. |
-| ![Geographic Impact](./impact-analysis.png) | **Geographic Impact Analytics** – Track donations and engagement across cities like Delhi, Mumbai, and Bengaluru. |
 
 
 ---
