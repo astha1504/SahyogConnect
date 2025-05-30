@@ -54,13 +54,13 @@ Our approach includes user role segmentation, real-time dashboards, and a clean,
 
 | Screenshot | Description |
 |------------|-------------|
-| ![Advance Donation System](./screenshots/advance-donation.png) | **Advance Donation System** – Users select donation types like food, clothes, or funds and add details easily. |
-| ![Donor Dashboard](./screenshots/donor-dashboard.png) | **Donor Dashboard** – View donations made, balance left, and access recent transactions. |
-| ![Featured NGOs](./screenshots/featured-ngo.png) | **Featured NGOs** – Highlighted causes and registered NGOs for direct contribution or volunteering. |
-| ![NGO Dashboard](./screenshots/ngo-dashboard.png) | **NGOs Dashboard** – Manage campaigns, approve volunteers, and view recent donations. |
-| ![Impact Dashboard](./screenshots/impact-dashboard.png) | **Impact Dashboard** – Visual reports showing donation value, types, and monthly trends. |
-| ![Real-Time Chat](./screenshots/real-time-chat.png) | **Real-Time Chatting System** – Instantly connect NGOs, donors, and volunteers via secure messaging. |
-| ![Geographic Impact](./screenshots/impact-analysis.png) | **Geographic Impact Analytics** – Track donations and engagement across cities like Delhi, Mumbai, and Bengaluru. |
+| ![Advance Donation System](./advance-donation.png) | **Advance Donation System** – Users select donation types like food, clothes, or funds and add details easily. |
+| ![Donor Dashboard](./donor-dashboard.png) | **Donor Dashboard** – View donations made, balance left, and access recent transactions. |
+| ![Featured NGOs](./featured-ngo.png) | **Featured NGOs** – Highlighted causes and registered NGOs for direct contribution or volunteering. |
+| ![NGO Dashboard](./ngo-dashboard.png) | **NGOs Dashboard** – Manage campaigns, approve volunteers, and view recent donations. |
+| ![Impact Dashboard](./impact-dashboard.png) | **Impact Dashboard** – Visual reports showing donation value, types, and monthly trends. |
+| ![Real-Time Chat](./real-time-chat.png) | **Real-Time Chatting System** – Instantly connect NGOs, donors, and volunteers via secure messaging. |
+| ![Geographic Impact](./impact-analysis.png) | **Geographic Impact Analytics** – Track donations and engagement across cities like Delhi, Mumbai, and Bengaluru. |
 
 
 ---
