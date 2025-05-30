@@ -36,7 +36,7 @@ Our approach includes user role segmentation, real-time dashboards, and a clean,
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Category        | Technology Used                             |
 |----------------|----------------------------------------------|
@@ -49,25 +49,23 @@ Our approach includes user role segmentation, real-time dashboards, and a clean,
 
 ---
 
-## 🖼️ Screenshots
+## Screenshots
 
-> _Include actual images in your repo's `/screenshots` folder and reference them here_
 
-![Homepage](./screenshots/homepage.png)  
-*Landing page welcoming users with roles*
+| Screenshot | Description |
+|------------|-------------|
+| ![Advance Donation System](./screenshots/advance-donation.png) | **Advance Donation System** – Users select donation types like food, clothes, or funds and add details easily. |
+| ![Donor Dashboard](./screenshots/donor-dashboard.png) | **Donor Dashboard** – View donations made, balance left, and access recent transactions. |
+| ![Featured NGOs](./screenshots/featured-ngo.png) | **Featured NGOs** – Highlighted causes and registered NGOs for direct contribution or volunteering. |
+| ![NGO Dashboard](./screenshots/ngo-dashboard.png) | **NGOs Dashboard** – Manage campaigns, approve volunteers, and view recent donations. |
+| ![Impact Dashboard](./screenshots/impact-dashboard.png) | **Impact Dashboard** – Visual reports showing donation value, types, and monthly trends. |
+| ![Real-Time Chat](./screenshots/real-time-chat.png) | **Real-Time Chatting System** – Instantly connect NGOs, donors, and volunteers via secure messaging. |
+| ![Geographic Impact](./screenshots/impact-analysis.png) | **Geographic Impact Analytics** – Track donations and engagement across cities like Delhi, Mumbai, and Bengaluru. |
 
-![Dashboard](./screenshots/dashboard.png)  
-*NGO dashboard overview*
-
-![Volunteer Page](./screenshots/volunteer-events.png)  
-*Volunteers can view and join upcoming events*
-
-![Donation Page](./screenshots/donation-form.png)  
-*Simple donation form with category selection*
 
 ---
 
-## 🚀 Run Instructions
+## Run Instructions
 
 ### Prerequisites
 - Node.js (v14+)
