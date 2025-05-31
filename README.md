@@ -42,8 +42,8 @@ Our approach includes user role segmentation, real-time dashboards, and a clean,
 |----------------|----------------------------------------------|
 | Frontend        | React, Tailwind CSS, TypeScript             |
 | Backend         | Node.js, Express.js                         |
-| Database        | Firebase Studio                        |
-| AI & NLP        | LangChain, OpenAI API                       |
+| Database        | Firebase Studio                             |
+| AI & NLP        | LangChain, Gemini API                       |
 | Deployment      | netlify,Streamlit                           |
 | Others          | Git, GitHub Actions, dotenv                 |
 
